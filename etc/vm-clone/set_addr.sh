@@ -33,8 +33,8 @@ then
     exit 0
 fi
 
-IP=$(grep -E "$TYPE .* test " $MAC_LIST | xargs | cut -d' ' -f3)
-HOST=$(grep -E "$TYPE .* test " $MAC_LIST | xargs | cut -d' ' -f4)
+IP=$(grep -E "$TYPE .* clone " $MAC_LIST | xargs | cut -d' ' -f3)
+HOST=$(grep -E "$TYPE .* clone " $MAC_LIST | xargs | cut -d' ' -f4)
 
 
 echo "$DEV $CUR_MAC $CUR_IP $CUR_HOST"
@@ -43,13 +43,13 @@ echo "$DEV $CUR_MAC $CUR_IP $CUR_HOST"
 if [ $IP != $CUR_IP ]
 then
     sed -i -r "s/^IPADDR=.+/IPADDR=\"${IP}\"/" $IF_CONF
-	echo "setting IP=$IP"
+    echo "setting IP=$IP"
 fi
 
 if [ $HOST != $CUR_HOST ]
 then
     echo $HOST > /etc/hostname
-	echo "setting HOST=$HOST"	
+    echo "setting HOST=$HOST"	
 fi
 
 if [ $TYPE == "app-cs" ]
