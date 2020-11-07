@@ -1,0 +1,13 @@
+#ln -s /etc/vm-clone/set-addr-vm.service /etc/systemd/system/set-addr-vm.service
+
+[Unit]
+Description=Setting addresses when cloning a VM
+Before=NetworkManager.service
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/etc/vm-clone/set_addr.sh
+
+[Install]
+WantedBy=multi-user.target
