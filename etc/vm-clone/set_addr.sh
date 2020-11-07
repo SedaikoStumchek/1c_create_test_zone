@@ -1,7 +1,7 @@
 #!/bin/bash
 #1
 #Файл настроек
-MAC_LIST=/etc/vm-clone/maclist.txt
+MAC_LIST=/etc/vm-clone/mac_list.txt
 
 #Имя интерфейса
 DEV=$(ip a show scope link | head -n1 | cut -d':' -f2 | xargs)
