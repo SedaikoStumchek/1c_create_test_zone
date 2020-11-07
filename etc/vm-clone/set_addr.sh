@@ -1,5 +1,5 @@
 #!/bin/bash
-#1
+
 #Файл настроек
 MAC_LIST=/etc/vm-clone/mac_list.txt
 
