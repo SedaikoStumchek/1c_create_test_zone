@@ -28,7 +28,7 @@ TYPE=$(grep $CUR_IP $MAC_LIST | xargs | cut -d' ' -f1)
 MAC_F=$(grep $CUR_IP $MAC_LIST | xargs | cut -d' ' -f2)
 
 #Если тестовый узел уже настроен, то ничего делать не надо
-if [ $MAC_F == "test" ]
+if [ $MAC_F == "clone" ]
 then
     exit 0
 fi
@@ -52,8 +52,10 @@ then
 	echo "setting HOST=$HOST"	
 fi
 
-if [ $TYPE == "app" ]
+if [ $TYPE == "app-cs" ]
 then
     rm -rf /home/usr1cv8/.1cv8
-	echo "remove cluster 1C"	
+    echo "remove cluster 1C"	
+    rm -rf /var/1C/license/*.*
+    echo "remove licenses 1C"	
 fi
