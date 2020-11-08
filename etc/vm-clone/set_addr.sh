@@ -61,7 +61,7 @@ fi
 
 if [ $HOST != $CUR_HOST ]
 then
-    echo "$HOST" > /etc/hostname
+	hostnamectl set-hostname $HOST   
     echo "setting HOST=$HOST"	
 fi
 
