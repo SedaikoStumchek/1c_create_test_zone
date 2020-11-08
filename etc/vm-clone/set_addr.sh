@@ -3,6 +3,12 @@
 #Файл настроек
 MAC_LIST=/etc/vm-clone/mac_list.txt
 
+if [ ! -f $MAC_LIS ]
+then
+	echo "File $MAC_LIS not found!"
+	exit 0
+fi
+
 #Имя интерфейса
 DEV=$(ip a show scope link | head -n1 | cut -d':' -f2 | xargs)
 
@@ -55,7 +61,7 @@ fi
 
 if [ $HOST != $CUR_HOST ]
 then
-    echo $HOST > /etc/hostname
+    echo "$HOST" > /etc/hostname
     echo "setting HOST=$HOST"	
 fi
 
