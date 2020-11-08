@@ -43,6 +43,7 @@ MAC_F=$(grep $CUR_IP $MAC_LIST | xargs | cut -d' ' -f2)
 #Если тестовый узел уже настроен, то ничего делать не надо
 if [ $MAC_F == "clone" ]
 then
+	echo "This is clonning server type '$TYPE'"
     exit 0
 fi
 
