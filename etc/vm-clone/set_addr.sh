@@ -62,8 +62,9 @@ fi
 
 if [ $HOST != $CUR_HOST ]
 then
-	hostnamectl set-hostname $HOST   
-    echo "setting HOST=$HOST"	
+    hostnamectl set-hostname $HOST   
+    echo "setting HOST=$HOST"
+    sed -r "s/^Hostname=.+/Hostname=${HOST}/"  -i /etc/zabbix/zabbix_agentd.conf
 fi
 
 if [ $TYPE == "app-cs" ]
