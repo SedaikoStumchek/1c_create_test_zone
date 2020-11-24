@@ -72,7 +72,9 @@ then
     rm -rf /home/usr1cv8/.1cv8
     echo "Remove cluster 1C"	
     rm -rf /var/1C/license/*.*
-    echo "Remove licenses 1C"	
+    echo "Remove licenses 1C"    
+    sed -r 's/.+SRV1CV8_DEBUG=/SRV1CV8_DEBUG=1/' -i /etc/sysconfig/srv1cv83
+    echo "Debug  mode 1C enabled."
 fi
 
 if [ $TYPE == "db-srv" ]
